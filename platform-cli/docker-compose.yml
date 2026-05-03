@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: platform-container
+    ports:
+      - "5000:5000"
+    networks:
+      - platform-network
+
+  redis:
+    image: redis
+    container_name: redis-container
+    networks:
+      - platform-network
+
+networks:
+  platform-network:
